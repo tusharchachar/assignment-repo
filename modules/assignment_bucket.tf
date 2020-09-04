@@ -40,7 +40,7 @@ resource "aws_s3_bucket" "assignment_bucket" {
   
 resource "null_resource" "upload_to_s3" {
   provisioner "local-exec" {
-    command = "aws s3 sync ../index.html s3://${aws_s3_bucket.assignment_bucket.id}"
+    command = "aws s3 cp ../index.html s3://${aws_s3_bucket.assignment_bucket.id}"
   }
 }
 
